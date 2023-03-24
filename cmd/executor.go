@@ -5,14 +5,14 @@ import (
 	"os"
 	"path"
 
-	"github.com/forbole/juno/v4/types/config"
+	"github.com/chain4energy/juno/v4/types/config"
 
-	initcmd "github.com/forbole/juno/v4/cmd/init"
-	migratecmd "github.com/forbole/juno/v4/cmd/migrate"
-	parsecmd "github.com/forbole/juno/v4/cmd/parse"
-	startcmd "github.com/forbole/juno/v4/cmd/start"
+	initcmd "github.com/chain4energy/juno/v4/cmd/init"
+	migratecmd "github.com/chain4energy/juno/v4/cmd/migrate"
+	parsecmd "github.com/chain4energy/juno/v4/cmd/parse"
+	startcmd "github.com/chain4energy/juno/v4/cmd/start"
 
-	"github.com/forbole/juno/v4/types"
+	"github.com/chain4energy/juno/v4/types"
 
 	"github.com/spf13/cobra"
 	"github.com/tendermint/tendermint/libs/cli"

@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/forbole/juno/v4/types/config"
+	"github.com/chain4energy/juno/v4/types/config"
 
 	"github.com/spf13/cobra"
 )

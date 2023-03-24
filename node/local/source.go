@@ -20,8 +20,8 @@ import (
 	tmstore "github.com/tendermint/tendermint/store"
 	db "github.com/tendermint/tm-db"
 
+	"github.com/chain4energy/juno/v4/node"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
-	"github.com/forbole/juno/v4/node"
 )
 
 var (
