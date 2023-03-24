@@ -1,13 +1,13 @@
 package v3
 
 import (
-	loggingconfig "github.com/forbole/juno/v4/logging/config"
-	"github.com/forbole/juno/v4/modules/pruning"
-	"github.com/forbole/juno/v4/modules/telemetry"
-	nodeconfig "github.com/forbole/juno/v4/node/config"
-	parserconfig "github.com/forbole/juno/v4/parser/config"
-	pricefeedconfig "github.com/forbole/juno/v4/pricefeed"
-	"github.com/forbole/juno/v4/types/config"
+	loggingconfig "github.com/chain4energy/juno/v4/logging/config"
+	"github.com/chain4energy/juno/v4/modules/pruning"
+	"github.com/chain4energy/juno/v4/modules/telemetry"
+	nodeconfig "github.com/chain4energy/juno/v4/node/config"
+	parserconfig "github.com/chain4energy/juno/v4/parser/config"
+	pricefeedconfig "github.com/chain4energy/juno/v4/pricefeed"
+	"github.com/chain4energy/juno/v4/types/config"
 )
 
 type Config struct {

@@ -3,11 +3,11 @@ package database
 import (
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 
-	"github.com/forbole/juno/v4/logging"
+	"github.com/chain4energy/juno/v4/logging"
 
-	databaseconfig "github.com/forbole/juno/v4/database/config"
+	databaseconfig "github.com/chain4energy/juno/v4/database/config"
 
-	"github.com/forbole/juno/v4/types"
+	"github.com/chain4energy/juno/v4/types"
 )
 
 // Database represents an abstract database that can be used to save data inside it

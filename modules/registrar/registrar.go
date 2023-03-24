@@ -4,20 +4,20 @@ import (
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/forbole/juno/v4/node"
+	"github.com/chain4energy/juno/v4/node"
 
-	"github.com/forbole/juno/v4/modules/telemetry"
+	"github.com/chain4energy/juno/v4/modules/telemetry"
 
-	"github.com/forbole/juno/v4/logging"
+	"github.com/chain4energy/juno/v4/logging"
 
-	"github.com/forbole/juno/v4/types/config"
+	"github.com/chain4energy/juno/v4/types/config"
 
-	"github.com/forbole/juno/v4/modules/pruning"
+	"github.com/chain4energy/juno/v4/modules/pruning"
 
-	"github.com/forbole/juno/v4/modules"
-	"github.com/forbole/juno/v4/modules/messages"
+	"github.com/chain4energy/juno/v4/modules"
+	"github.com/chain4energy/juno/v4/modules/messages"
 
-	"github.com/forbole/juno/v4/database"
+	"github.com/chain4energy/juno/v4/database"
 )
 
 // Context represents the context of the modules registrar
