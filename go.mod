@@ -1,4 +1,4 @@
-module github.com/forbole/juno/v4
+module github.com/chain4energy/juno/v4
 
 go 1.18
 
