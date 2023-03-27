@@ -8,6 +8,7 @@ import (
 type Details struct {
 	RPC  *RPCConfig  `yaml:"rpc"`
 	GRPC *GRPCConfig `yaml:"grpc"`
+	REST *RESTConfig `yaml:"rest"`
 }
 
 func NewDetails(rpc *RPCConfig, grpc *GRPCConfig) *Details {
@@ -35,6 +36,11 @@ func (d *Details) Validate() error {
 }
 
 // --------------------------------------------------------------------------------------------------------------------
+
+// RPCConfig contains the configuration for the RPC endpoint
+type RESTConfig struct {
+	Address string `yaml:"address"`
+}
 
 // RPCConfig contains the configuration for the RPC endpoint
 type RPCConfig struct {
