@@ -8,17 +8,19 @@ import (
 type Details struct {
 	RPC  *RPCConfig  `yaml:"rpc"`
 	GRPC *GRPCConfig `yaml:"grpc"`
+	REST *RESTConfig `yaml:"rest"`
 }
 
-func NewDetails(rpc *RPCConfig, grpc *GRPCConfig) *Details {
+func NewDetails(rpc *RPCConfig, grpc *GRPCConfig, rest *RESTConfig) *Details {
 	return &Details{
 		RPC:  rpc,
 		GRPC: grpc,
+		REST: rest,
 	}
 }
 
 func DefaultDetails() *Details {
-	return NewDetails(DefaultRPCConfig(), DefaultGrpcConfig())
+	return NewDetails(DefaultRPCConfig(), DefaultGrpcConfig(), DefaultRestConfig())
 }
 
 // Validate implements node.Details
@@ -31,10 +33,19 @@ func (d *Details) Validate() error {
 		return fmt.Errorf("grpc config cannot be null")
 	}
 
+	if d.REST == nil {
+		return fmt.Errorf("rest config cannot be null")
+	}
+
 	return nil
 }
 
 // --------------------------------------------------------------------------------------------------------------------
+
+// RPCConfig contains the configuration for the RPC endpoint
+type RESTConfig struct {
+	Address string `yaml:"address"`
+}
 
 // RPCConfig contains the configuration for the RPC endpoint
 type RPCConfig struct {
@@ -73,7 +84,19 @@ func NewGrpcConfig(address string, insecure bool) *GRPCConfig {
 	}
 }
 
+// NewRestConfig allows to build a new GrpcConfig instance
+func NewRestConfig(address string) *RESTConfig {
+	return &RESTConfig{
+		Address: address,
+	}
+}
+
 // DefaultGrpcConfig returns the default instance of a GrpcConfig
 func DefaultGrpcConfig() *GRPCConfig {
 	return NewGrpcConfig("localhost:9090", true)
+}
+
+// DefaultRestConfig returns the default instance of a GrpcConfig
+func DefaultRestConfig() *RESTConfig {
+	return NewRestConfig("localhost:1317")
 }
