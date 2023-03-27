@@ -14,15 +14,17 @@ var (
 
 // Source implements the keeper.Source interface relying on a GRPC connection
 type Source struct {
-	Ctx      context.Context
-	GrpcConn *grpc.ClientConn
+	Ctx          context.Context
+	GrpcConn     *grpc.ClientConn
+	Restendpoint string
 }
 
 // NewSource returns a new Source instance
-func NewSource(config *GRPCConfig) (*Source, error) {
+func NewSource(config *GRPCConfig, restEndpoint string) (*Source, error) {
 	return &Source{
-		Ctx:      context.Background(),
-		GrpcConn: MustCreateGrpcConnection(config),
+		Ctx:          context.Background(),
+		GrpcConn:     MustCreateGrpcConnection(config),
+		Restendpoint: restEndpoint,
 	}, nil
 }
 
