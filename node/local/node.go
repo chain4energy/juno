@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/hex"
 	"fmt"
+	db "github.com/cometbft/cometbft-db"
 	"os"
 	"sort"
 
@@ -41,7 +42,6 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmnode "github.com/tendermint/tendermint/node"
 	tmctypes "github.com/tendermint/tendermint/rpc/core/types"
-	dbm "github.com/tendermint/tm-db"
 )
 
 const (
@@ -174,8 +174,8 @@ func NewNode(config *Details, txConfig client.TxConfig, codec codec.Codec) (*Nod
 	}, nil
 }
 
-func initDBs(config *cfg.Config, dbProvider tmnode.DBProvider) (blockStore *store.BlockStore, stateDB dbm.DB, err error) {
-	var blockStoreDB dbm.DB
+func initDBs(config *cfg.Config, dbProvider tmnode.DBProvider) (blockStore *store.BlockStore, stateDB db.DB, err error) {
+	var blockStoreDB db.DB
 	blockStoreDB, err = dbProvider(&tmnode.DBContext{ID: "blockstore", Config: config})
 	if err != nil {
 		return
@@ -219,7 +219,7 @@ func createAndStartIndexerService(
 		}
 
 		txIndexer = kv.NewTxIndex(store)
-		blockIndexer = blockidxkv.New(dbm.NewPrefixDB(store, []byte("block_events")))
+		blockIndexer = blockidxkv.New(db.NewPrefixDB(store, []byte("block_events")))
 	default:
 		txIndexer = &null.TxIndex{}
 		blockIndexer = &blockidxnull.BlockerIndexer{}
